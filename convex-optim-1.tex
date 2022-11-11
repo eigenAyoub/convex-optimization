@@ -1,0 +1,154 @@
+\documentclass{article}
+
+\usepackage[left=1.25in,top=1.25in,right=1.25in,bottom=1.25in,head=1.25in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{verbatim,float,url,enumerate}
+\usepackage{graphicx,subfigure,psfrag}
+\usepackage{natbib,xcolor}
+\usepackage{microtype}
+
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\newcommand{\argmin}{\mathop{\mathrm{argmin}}}
+\newcommand{\argmax}{\mathop{\mathrm{argmax}}}
+\newcommand{\minimize}{\mathop{\mathrm{minimize}}}
+\newcommand{\maximize}{\mathop{\mathrm{maximize}}}
+\newcommand{\st}{\mathop{\mathrm{subject\,\,to}}}
+
+\def\R{\mathbb{R}}
+\def\E{\mathbb{E}}
+\def\P{\mathbb{P}}
+\def\S{\mathbb{S}}
+\def\Cov{\mathrm{Cov}}
+\def\Var{\mathrm{Var}}
+\def\half{\frac{1}{2}}
+\def\sign{\mathrm{sign}}
+\def\supp{\mathrm{supp}}
+\def\th{\mathrm{th}}
+\def\tr{\mathrm{tr}}
+\def\dim{\mathrm{dim}}
+\def\dom{\mathrm{dom}}
+
+\begin{document}
+
+\title{Tutorial 1}
+\author{\Large Ben Ayad Ayoub}
+
+\bigskip
+
+
+\maketitle
+
+\noindent
+This file contains properties and tricks regarding:
+\begin{itemize}
+    \item Convex Vs Closed Sets
+    \item Convex functions
+    \item Properties of Lipchitz Gradients
+    \item Properties of Strong convexity.
+\end{itemize}
+
+\section{Convex sets}
+
+\noindent
+(a) Closed sets and convex sets. 
+\begin{enumerate}[i.]
+\item A polyhedron $\{x \in \R^n : Ax \leq b \}$, for some $A\in
+  \R^{m\times  n},  b\in \R^m$, is both convex and closed.  
+\item  Show that if $S_i \subseteq \R^n$, $i\in I$ is a collection of convex 
+  sets, then their intersection $\cap_{i\in I} S_i$ is also convex.  Show that
+  the same statement holds if we replace ``convex'' with ``closed''.  
+\item Given an example of a closed set in $\R^2$ whose convex hull is not
+  closed.  
+\item Let $A\in\R^{m\times n}$. Show that if $S\subseteq \R^m$ is convex then
+  so is $A^{-1}(S) =\{ x \in \R^n : Ax \in S\}$, which is called the preimage of
+  $S$ under the map $A :\R^n  \to \R^m$. Show that the same statement holds if
+  we replace  ``convex'' with ``closed''.   
+\item Let $A\in\R^{m\times n}$.  Show that if $S\subseteq \R^n$ is convex then 
+  so is $A(S) = \{ Ax : x \in S \}$, called the image of $S$ under $A$. 
+\item  Give an example of a matrix $A\in\R^{m\times n}$ and a set $S\subseteq
+  \R^n$ that is closed and convex but such that $A(S)$ is not closed.  
+\end{enumerate}
+
+\bigskip
+\noindent
+(b, 4 pts) Polyhedra.
+\begin{enumerate}[i.]
+\item Show that if $P \subseteq \R^n$ is a polyhedron, and $A \in \R^{m \times
+    n}$, then $A(P)$ is a polyhedron. Hint: you may use the fact that 
+  $$
+  \text{$P \subseteq \R^{m+n}$ is a polyhedron} 
+  \; \Rightarrow \;
+  \text{$\{x\in \R^n : \text{$(x,y)\in P$ for some $y\in\R^m$}\}$ 
+    is a polyhedron}.
+  $$
+\item Show that if $Q \subseteq \R^m$ is a polyhedron, and $A \in \R^{m \times
+    n}$, then $A^{-1}(Q)$ is a polyhedron. 
+\end{enumerate}
+
+\section{Convex functions (14 points)}
+
+
+\bigskip
+\noindent
+(a) Let $f$ be twice differentiable, with $\mathrm{dom}(f)$ convex.
+Prove that: \\
+
+$f$ is convex $\iff (\nabla f(x) - \nabla f(y))^T (x-y) \geq 0,$ for all $x,y$. 
+
+
+\bigskip
+\noindent
+(b) A function $f : \R^n \to \R$ is said to be {\it coercive} provided
+that $f(x) \to \infty$ as $\|x\|_2 \to \infty$.  A key fact about coercive
+functions is that they attain their infimums.  Prove that a twice
+differentiable, strongly convex function is coercive and hence attains its
+infimum. Hint: use Q3 part (b.iv).  
+
+\bigskip
+\noindent
+(b) Prove that the maximum of a convex function over a bounded
+polyhedron must occur at one of the vertices.
+
+\section{Lipschitz gradients}
+
+
+\bigskip
+\noindent
+Let $f$ be convex and twice continuously differentiable. We will show that the following statements are equivalent.
+\begin{enumerate}[i.]
+\item $\nabla f$ is Lipschitz with constant $L$;
+\item $(\nabla f(x) - \nabla f(y))^T(x-y) \leq L \|x-y\|_2^2$ for all
+  $x,y$; 
+\item $\nabla^2 f(x) \preceq LI$ for all $x$;
+\item $f(y) \leq f(x) + \nabla f(x)^T (y-x) + \frac{L}{2} \|y-x\|_2^2$
+  for all $x,y$.
+\end{enumerate}
+
+
+\section{Strong convexity}%
+\label{sec:strong_convexity}
+
+
+\bigskip
+\noindent
+
+Let $f$ be convex and twice continuously differentiable. We will show that the following statements are equivalent.
+\begin{enumerate}[i.]
+\item $f$ is strongly convex with constant $m$;
+\item $(\nabla f(x) - \nabla f(y))^T(x-y) \geq m \|x-y\|_2^2$ for all
+  $x,y$;
+\item $\nabla^2 f(x) \succeq mI$ for all $x$;
+\item $f(y) \geq f(x) + \nabla f(x)^T (y-x) + \frac{m}{2}
+  \|y-x\|_2^2$ for all $x,y$.
+\end{enumerate}
+
+\end{document}
