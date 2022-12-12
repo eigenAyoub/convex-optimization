@@ -6,7 +6,7 @@
 \usepackage{graphicx,subfigure,psfrag}
 \usepackage{natbib,xcolor}
 \usepackage{microtype}
-
+\usepackage{tcolorbox}
 \newtheorem{algorithm}{Algorithm}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
@@ -47,14 +47,9 @@
 
 \maketitle
 
-\noindent
-This file contains properties and tricks regarding:
-\begin{itemize}
-    \item Convex Vs Closed Sets
-    \item Convex functions
-    \item Properties of Lipchitz Gradients
-    \item Properties of Strong convexity.
-\end{itemize}
+
+\tableofcontents
+
 
 \section{Convex sets}
 
@@ -78,9 +73,25 @@ This file contains properties and tricks regarding:
   \R^n$ that is closed and convex but such that $A(S)$ is not closed.  
 \end{enumerate}
 
-\bigskip
-\noindent
-(b, 4 pts) Polyhedra.
+\begin{tcolorbox}
+Proofs:
+\begin{enumerate}[i.]
+\item Not difficult. 
+\item By noting that $\{ x \in \R^n: Ax \leq b \} = \cap_{i=1}^n  \{x\in\R^n: a_i^\top x \leq b_i \}$, it is left to prove that each halfspace associated with $(a_i, b_i)$ is closed (resp. convex), then we can use the result established in the past item. As the convexity can be proved in a straightforward manner, we will only prove that: $ H = \{x\in\R^n: a_i^\top x \leq b_i \}$ is closed.
+
+    Let $y_0 \in \bar{H}$, 
+    
+\item 
+\item 
+\item 
+\end{enumerate}
+\end{tcolorbox}
+
+
+
+\section{Polyhedra}%
+\label{sec:polyhedra}
+
 \begin{enumerate}[i.]
 \item Show that if $P \subseteq \R^n$ is a polyhedron, and $A \in \R^{m \times
     n}$, then $A(P)$ is a polyhedron. Hint: you may use the fact that 
@@ -94,7 +105,26 @@ This file contains properties and tricks regarding:
     n}$, then $A^{-1}(Q)$ is a polyhedron. 
 \end{enumerate}
 
-\section{Convex functions (14 points)}
+
+\begin{tcolorbox}
+Proofs:\\
+
+\begin{enumerate}[i.]
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+\end{tcolorbox}
+
+
+
+
+
+\section{Convex functions}
+
+
 
 
 \bigskip
@@ -118,6 +148,18 @@ infimum. Hint: use Q3 part (b.iv).
 (b) Prove that the maximum of a convex function over a bounded
 polyhedron must occur at one of the vertices.
 
+\begin{tcolorbox}
+Proofs:\\
+\begin{enumerate}[i.]
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+\end{tcolorbox}
+
+
 \section{Lipschitz gradients}
 
 
@@ -134,10 +176,19 @@ Let $f$ be convex and twice continuously differentiable. We will show that the f
 \end{enumerate}
 
 
-\section{Strong convexity}%
-\label{sec:strong_convexity}
+\begin{tcolorbox}
+Proofs:\\
+\begin{enumerate}[i.]
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+\end{tcolorbox}
 
 
+\section{Strongly Convex Functions}
 \bigskip
 \noindent
 
@@ -150,5 +201,20 @@ Let $f$ be convex and twice continuously differentiable. We will show that the f
 \item $f(y) \geq f(x) + \nabla f(x)^T (y-x) + \frac{m}{2}
   \|y-x\|_2^2$ for all $x,y$.
 \end{enumerate}
+
+\begin{tcolorbox}
+\textbf{Proofs:} 
+\begin{enumerate}[i.]
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+\end{tcolorbox}
+
+
+
+
 
 \end{document}

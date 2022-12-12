@@ -1,6 +1,6 @@
 # convex-optimization
 
-This repo is massively influenced by [Ryan Tibshirani couse at CMU](https://www.stat.cmu.edu/~ryantibs/convexopt-F18/). The solutions though are completely mine, unless I mentioned otherwise.
+This repo is massively influenced by [Ryan Tibshirani couse at CMU](https://www.stat.cmu.edu/~ryantibs/convexopt-F18/). The solutions though are completely mine, unless I mention otherwise.
 
 I will also some results from the course that I'm undertaken at my univeristy (PASSAU). 
 
